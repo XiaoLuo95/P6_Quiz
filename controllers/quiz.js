@@ -16,7 +16,6 @@ exports.load = (req, res, next, quizId) => {
     .catch(error => next(error));
 };
 
-
 // GET /quizzes
 exports.index = (req, res, next) => {
 
@@ -152,4 +151,71 @@ exports.check = (req, res, next) => {
         result,
         answer
     });
+};
+
+exports.randomPlay= (req, res, next) => {
+
+    if (req.session.quizzes === undefined) {
+        req.session.score = 0;
+
+        models.quiz.findAll()
+            .then(quizzes => {
+                req.session.quizzes = quizzes;
+                req.session.index = Math.floor(Math.random()*req.session.quizzes.length);
+                res.render('quizzes/random_play', {
+                    quiz: req.session.quizzes[req.session.index],
+                    score: req.session.score
+                })
+            })
+    } else {
+        req.session.index = Math.floor(Math.random()*req.session.quizzes.length);
+        res.render('quizzes/random_play', {
+            quiz: req.session.quizzes[req.session.index],
+            score: req.session.score
+        });
+    }
+};
+
+exports.randomCheck = (req, res, next) => {
+
+    let resp = req.query.answer;
+    let result = false;
+
+    if (limpia(resp) === limpia(req.session.quizzes[req.session.index].answer)) {
+        req.session.score++;
+        result = true;
+        req.session.quizzes.splice(req.session.index, 1);
+        if(req.session.quizzes.length === 0){
+            req.session.quizzes = undefined;
+            res.render('quizzes/random_nomore', {
+                score: req.session.score
+            });
+        } else {
+            res.render('quizzes/random_result', {
+                score: req.session.score,
+                result: result,
+                answer: resp
+            });
+        }
+    } else {
+        req.session.quizzes = undefined;
+        let score = req.session.score;
+        req.session.score = 0;
+        res.render('quizzes/random_result', {
+            score: score,
+            result: result,
+            answer: resp
+        });
+    }
+};
+
+limpia = comp => {
+    comp = comp.replace(/\s+/g, '');
+    comp = comp.toLowerCase();
+    comp = comp.replace(/á/gi, "a");
+    comp = comp.replace(/é/gi, "e");
+    comp = comp.replace(/í/gi, "i");
+    comp = comp.replace(/ó/gi, "o");
+    comp = comp.replace(/ú/gi, "u");
+    return comp;
 };
