@@ -159,31 +159,30 @@ exports.randomPlay= (req, res, next) => {
         req.session.score = 0;
 
         models.quiz.findAll()
-            .then(quizzes => {
-                req.session.quizzes = quizzes;
-                req.session.index = Math.floor(Math.random()*req.session.quizzes.length);
-                res.render('quizzes/random_play', {
-                    quiz: req.session.quizzes[req.session.index],
-                    score: req.session.score
-                })
+        .then(quizzes => {
+            req.session.quizzes = quizzes;
+            req.session.index = Math.floor(Math.random()*req.session.quizzes.length);
+            res.render('quizzes/random_play', {
+                score: req.session.score,
+                quiz: req.session.quizzes[req.session.index]
             })
+        })
     } else {
         req.session.index = Math.floor(Math.random()*req.session.quizzes.length);
         res.render('quizzes/random_play', {
-            quiz: req.session.quizzes[req.session.index],
-            score: req.session.score
+            score: req.session.score,
+            quiz: req.session.quizzes[req.session.index]
         });
     }
 };
 
 exports.randomCheck = (req, res, next) => {
 
-    let resp = req.query.answer;
-    let result = false;
+    let correct = false;
 
-    if (limpia(resp) === limpia(req.session.quizzes[req.session.index].answer)) {
+    if (limpia(req.query.answer) === limpia(req.session.quizzes[req.session.index].answer)) {
+        correct = true;
         req.session.score++;
-        result = true;
         req.session.quizzes.splice(req.session.index, 1);
         if(req.session.quizzes.length === 0){
             req.session.quizzes = undefined;
@@ -193,18 +192,18 @@ exports.randomCheck = (req, res, next) => {
         } else {
             res.render('quizzes/random_result', {
                 score: req.session.score,
-                result: result,
-                answer: resp
+                answer: req.query.answer,
+                result: correct
             });
         }
     } else {
-        req.session.quizzes = undefined;
         let score = req.session.score;
         req.session.score = 0;
+        req.session.quizzes = undefined;
         res.render('quizzes/random_result', {
             score: score,
-            result: result,
-            answer: resp
+            answer: req.query.answer,
+            result: correct
         });
     }
 };
