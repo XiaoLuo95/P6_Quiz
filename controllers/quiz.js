@@ -185,9 +185,14 @@ exports.randomCheck = (req, res, next) => {
         req.session.score++;
         req.session.quizzes.splice(req.session.index, 1);
         if(req.session.quizzes.length === 0){
-            req.session.quizzes = undefined;
-            res.render('quizzes/random_nomore', {
-                score: req.session.score
+            models.quiz.findAll()
+            .then(quizzes => {
+                req.session.quizzes = quizzes;
+            })
+            .then(() => {
+                res.render('quizzes/random_nomore', {
+                    score: req.session.score
+                });
             });
         } else {
             res.render('quizzes/random_result', {
@@ -199,11 +204,16 @@ exports.randomCheck = (req, res, next) => {
     } else {
         let score = req.session.score;
         req.session.score = 0;
-        req.session.quizzes = undefined;
-        res.render('quizzes/random_result', {
-            score: score,
-            answer: req.query.answer,
-            result: correct
+        models.quiz.findAll()
+        .then(quizzes => {
+            req.session.quizzes = quizzes;
+        })
+        .then(() => {
+            res.render('quizzes/random_result', {
+                score: score,
+                answer: req.query.answer,
+                result: correct
+            });
         });
     }
 };
