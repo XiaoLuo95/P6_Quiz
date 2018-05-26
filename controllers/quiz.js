@@ -259,13 +259,15 @@ exports.randomCheck = (req, res, next) => {
         req.session.score++;
         req.session.quizzes.splice(req.session.index, 1);
         if(req.session.quizzes.length === 0){
+            let score = req.session.score;
+            req.session.score = 0;
             models.quiz.findAll()
             .then(quizzes => {
                 req.session.quizzes = quizzes;
             })
             .then(() => {
                 res.render('quizzes/random_nomore', {
-                    score: req.session.score
+                    score: score
                 });
             });
         } else {
