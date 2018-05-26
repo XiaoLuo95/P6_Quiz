@@ -34,10 +34,13 @@
     <nav class="main" id="mainNav" role="navigation">
         <a href="/">Home</a>
         <a href="/quizzes">Quizzes</a>
+<<<<<<< HEAD
         <% if (session.user) { %>
             <a href="/users/<%= session.user.id %>/quizzes">My Quizzes</a>
         <% } %>
+=======
         <a href="/quizzes/randomplay">Play</a>
+>>>>>>> practica6
         <a href="/author">Author</a>
         <% if (session.user) { %>
             <a href="/users">Users</a>
