@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5584e92-0303-4e76-92a0-1c3050023e6a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="373">
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="1989" column="10" selection-start-line="1989" selection-start-column="7" selection-end-line="1989" selection-end-column="10" />
+            <state relative-caret-position="218">
+              <caret line="558" column="66" selection-start-line="558" selection-start-column="66" selection-end-line="558" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -65,6 +65,8 @@
       <find>app.js</find>
       <find>controllers/quiz.js</find>
       <find>uid</find>
+      <find>uid-safe</find>
+      <find>shimer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,7 +113,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="425" />
     <option name="y" value="226" />
     <option name="width" value="1400" />
@@ -183,21 +185,22 @@
       <option name="presentableId" value="Default" />
       <updated>1527254506915</updated>
       <workItem from="1527254515740" duration="1333000" />
-      <workItem from="1528536135891" duration="2764000" />
+      <workItem from="1528536135891" duration="4504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7773000" />
+    <option name="totallyTimeSpent" value="9513000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.24959569" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.24959569" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5007143" side_tool="true" visible="true" weight="0.32890704" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50026953" side_tool="true" visible="true" weight="0.3299285" />
+      <window_info active="true" anchor="bottom" id="Find" order="5" sideWeight="0.49973047" visible="true" weight="0.3299285" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49928573" weight="0.32924107" />
@@ -210,7 +213,6 @@
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Message" order="4" />
     </layout>
     <layout-to-restore>
@@ -540,17 +542,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="1989" column="10" selection-start-line="1989" selection-start-column="7" selection-end-line="1989" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
           <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="558" column="66" selection-start-line="558" selection-start-column="66" selection-end-line="558" selection-end-column="66" />
         </state>
       </provider>
     </entry>
