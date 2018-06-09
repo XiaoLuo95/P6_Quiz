@@ -36,7 +36,8 @@
     "sequelize": "^4.37.5",
     "sequelize-cli": "^4.0.0",
     "serve-favicon": "~2.4.5",
-    "supervisor": "^0.12.0"
+    "supervisor": "^0.12.0",
+    "uid-safe": "^2.1.5"
   },
   "devDependencies": {
     "sqlite3": "^4.0.0"
